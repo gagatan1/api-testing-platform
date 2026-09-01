@@ -12,22 +12,22 @@ export class MobileClient {
     this.headers = authHeader(token);
   }
 
-  async getOrders() {
-    return this.api
-      .get('/api/mobile/orders')
-      .set(this.headers);
-  }
+  // async getOrders() {
+  //   return this.api
+  //     .get('/api/mobile/orders')
+  //     .set(this.headers);
+  // }
 
-  async acceptOrder(id) {
-    return this.api
-      .post(`/api/mobile/orders/${id}/accept`)
-      .set(this.headers);
-  }
+  // async acceptOrder(id) {
+  //   return this.api
+  //     .post(`/api/mobile/orders/${id}/accept`)
+  //     .set(this.headers);
+  // }
 
-  async closeOrder(id, code) {
-    return this.api
-      .post(`/api/mobile/orders/${id}/close`)
-      .set(this.headers)
-      .send({ code });
-  }
+  // async closeOrder(id, code) {
+  //   return this.api
+  //     .post(`/api/mobile/orders/${id}/close`)
+  //     .set(this.headers)
+  //     .send({ code });
+  // }
 }
