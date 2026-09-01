@@ -1,0 +1,22 @@
+name: Nightly regression
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # каждый день 02:00
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - run: cp .env.staging .env
+      - run: npm test
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-report
+          path: reports/
